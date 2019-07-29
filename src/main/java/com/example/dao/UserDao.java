@@ -23,4 +23,10 @@ public class UserDao {
         int result = jdbcTemplate.update(sql, name, password,new Date(),new Date());
         System.out.println("执行结果:result=" + result);
     }
+
+    public void save(String name, String password) {
+        String sql = "INSERT INTO tb_user(username, password,created,updated) VALUES(?,?,?,?);";
+        int result = jdbcTemplate.update(sql, name, password,new Date(),new Date());
+        System.out.println("执行结果:result=" + result);
+    }
 }

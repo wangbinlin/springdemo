@@ -5,6 +5,7 @@ import com.example.dao.UserDao;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * UserServiceImpl
@@ -25,9 +26,20 @@ public class UserServiceImpl implements UserService {
     @ExtTransaction
     @Override
     public void save() {
-        int i=1/0;
-        userDao.save("test1", "test1");
+
+        userDao.save("test4", "test4");
         System.out.println("执行save2方法");
-        userDao.save("test2", "test2");
+        int i=1/0;
+        userDao.save("test5", "test5");
+    }
+
+
+    @Transactional
+    @Override
+    public void save2() {
+        userDao.save("test4", "test4");
+        System.out.println("执行save2方法");
+        int i=1/0;
+        userDao.save("test5", "test5");
     }
 }
